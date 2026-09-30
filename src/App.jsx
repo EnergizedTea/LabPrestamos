@@ -3,6 +3,9 @@ import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
+import Catalogo from './components/Catalogo'
+import { equipos } from './data/equipos'
+
 
 function App() {
   const total =  5
@@ -33,14 +36,16 @@ function App() {
         </div>
 
         <main>
-          <h2>Raspberry Pi 5</h2>
+          {/* <h2>Raspberry Pi 5</h2>
           <p>{disponibles} de {total} disponibles</p>
           <button type="button" onClick={prestar} disabled={disponibles === 0}>
             Prestar
           </button>
           <button type="button" onClick={devolver} disabled={disponibles === total}>
             Devolver
-          </button>
+          </button> */}
+          <h1>Laboratorio - Prestamos</h1>
+          <Catalogo equipos={equipos} />
         </main>
 
 
