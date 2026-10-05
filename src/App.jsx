@@ -8,6 +8,9 @@ import { equipos } from './data/equipos'
 
 
 function App() {
+
+  console.log("renderizando catalogo")
+
   const total =  5
   const [disponibles, setDisponibles] = useState(total)
   const [count, setCount] = useState(0)
@@ -31,6 +34,7 @@ function App() {
         <div>
           <h1>mi primera app</h1>
           <p>
+            
             Autor: Diego Pacheco Valdez
           </p>
         </div>
@@ -45,6 +49,7 @@ function App() {
             Devolver
           </button> */}
           <h1>Laboratorio - Prestamos</h1>
+          
           <Catalogo equipos={equipos} />
         </main>
 
