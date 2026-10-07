@@ -1,4 +1,4 @@
-function TarjetaEquipo({ equipo }) {
+function TarjetaEquipo({ equipo , agregarEquipo}) {
     const{id, nombre, categoria, cantidad, disponible} = equipo;
 
     return(
@@ -7,7 +7,7 @@ function TarjetaEquipo({ equipo }) {
             <p>{id} - {categoria}</p>
             <p>Cantidad: {cantidad}</p>
             <p>{disponible ? 'Disponible' : 'Prestado'}</p>
-            <button type = "button" disabled={!disponible}>
+            <button type = "button" disabled={!disponible} onClick={() => agregarEquipo(equipo)}>
                 {disponible ? 'Solicitar' : 'No disponible'}
             </button>
         </article>

@@ -4,7 +4,9 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
 import Catalogo from './components/Catalogo'
+import Carrito from './components/Carrito'
 import { equipos } from './data/equipos'
+
 
 
 function App() {
@@ -14,7 +16,7 @@ function App() {
   const total =  5
   const [disponibles, setDisponibles] = useState(total)
   const [count, setCount] = useState(0)
-  //const [count2, setCount2] = useState(0)
+  const [carrito, setCarrito] = useState([])
 
   function prestar() {
     setDisponibles((d) => (d < 0 ? 0 : d - 1))
@@ -23,6 +25,18 @@ function App() {
   function devolver() {
     setDisponibles((d) => (d > total ? total : d + 1))
   }
+
+  function agregarCarrito(equipo) {
+    setCarrito([...carrito, equipo])
+  }
+
+  function quitarCarrito(id) {
+    setCarrito(
+        carrito.filter((equipo) => equipo.id !== id)
+    )
+  }
+
+
   return (
     <>
       <section id="center">
@@ -41,8 +55,9 @@ function App() {
 
         <main>
           <h1>Laboratorio - Prestamos</h1>
-          
-          <Catalogo equipos={equipos} />
+          <p>Solicitudes: {carrito.length}</p>
+          <Carrito carrito={carrito} quitarCarrito={quitarCarrito} /> 
+          <Catalogo equipos={equipos} agregarEquipo={agregarCarrito} />
         </main>
 
       </section>
